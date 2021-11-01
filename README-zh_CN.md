@@ -4,7 +4,6 @@
 
 > 这是一个基础的 vue3 admin electron 桌面端平台。包含最基本的electron开发构建步骤和使用demo，一套代码可同时打包 win,mac, linux 平台应用。
 
-
 本架构使用的技术为：electron13+vue3(setup-script)+vite2+element-plus的新一代的跨桌面端框架，It's easy and fast!
 
 使用 eslint+prettier+gitHooks 格式和校验代码,提高代码规范性和开发效率
@@ -15,13 +14,15 @@
 add demo of electron
 ```
 ## 线上体验(下载安装包并安装体验)
-![链接](https://pan.baidu.com/s/1UUWwh1Zx_C_c4pxL2m9zQA )
+链接: https://pan.baidu.com/s/1UUWwh1Zx_C_c4pxL2m9zQA
 提取码：4293
 
 ## 例子
--- win
+
+#### -- win
 ![electron-win-demo](http://8.135.1.141/file/images/electron-win-demo.png)
--- mac
+
+#### -- mac
 ![electron-mac-demo](http://8.135.1.141/file/images/electron-mac-demo.png)
 ## 相关项目
 

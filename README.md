@@ -18,13 +18,15 @@ add demo of electron
 
 ## Online experience(Download the installation package, unzip and install the experience)
 
-![link](https://pan.baidu.com/s/1UUWwh1Zx_C_c4pxL2m9zQA)
+address: https://pan.baidu.com/s/1UUWwh1Zx_C_c4pxL2m9zQA
 password：4293
 
 ## Demo
--- win
+
+#### -- win
 ![electron-win-demo](http://8.135.1.141/file/images/electron-win-demo.png)
--- mac
+
+#### -- mac
 ![electron-mac-demo](http://8.135.1.141/file/images/electron-mac-demo.png)
 
 ## Related items
