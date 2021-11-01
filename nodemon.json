@@ -1,0 +1,5 @@
+{
+    "watch":["electron","electron-main.js"],
+    "ext": "ts,js,html,css",
+    "ignore": ["node_modules","src","dist",".husky","mock",".husky"]
+}
