@@ -17,6 +17,7 @@ add demo of electron
 ```
 
 ## Online experience(Download the installation package, unzip and install the experience)
+[github address](https://github.com/jzfai/vue3-admin-electron.git
 
 address: https://pan.baidu.com/s/1UUWwh1Zx_C_c4pxL2m9zQA
 

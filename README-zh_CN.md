@@ -14,6 +14,7 @@
 add demo of electron
 ```
 ## 线上体验(下载安装包并安装体验)
+github 地址：  https://github.com/jzfai/vue3-admin-electron.git
 
 链接: https://pan.baidu.com/s/1UUWwh1Zx_C_c4pxL2m9zQA
 
