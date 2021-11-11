@@ -18,17 +18,19 @@
             src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80"
             class="user-avatar"
           />
-          <i class="el-icon-caret-bottom" />
+          <CaretBottom style="width: 1em; height: 1em; margin-left: 4px" />
+          <!--el-icon-x  is  destructed-->
+          <!--<i class="el-icon-caret-bottom" />-->
         </div>
         <template #dropdown>
           <el-dropdown-menu>
             <router-link to="/">
               <el-dropdown-item>Home</el-dropdown-item>
             </router-link>
-            <a target="_blank" href="https://github.com/jzfai/vue3-admin-electron">
+            <a target="_blank" href="https://github.com/jzfai/vue3-admin-template">
               <el-dropdown-item>Github</el-dropdown-item>
             </a>
-            <a target="_blank" href="https://github.com/jzfai/vue3-admin-electron">
+            <a target="_blank" href="https://github.com/jzfai/vue3-admin-template">
               <el-dropdown-item>Docs</el-dropdown-item>
             </a>
             <!--<el-dropdown-item>修改密码</el-dropdown-item>-->
@@ -41,6 +43,7 @@
 </template>
 
 <script setup>
+import { CaretBottom } from '@element-plus/icons'
 import Breadcrumb from './Breadcrumb'
 import Hamburger from './Hamburger'
 import { computed, getCurrentInstance } from 'vue'
@@ -64,6 +67,8 @@ const loginOut = () => {
   store.dispatch('user/logout').then(() => {
     ElMessage({ message: '退出登录成功', type: 'success' })
     proxy.$router.push(`/login?redirect=${proxy.$route.fullPath}`)
+    //此处reload清空路由和重置部分状态
+    location.reload()
   })
 }
 </script>

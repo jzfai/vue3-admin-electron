@@ -37,7 +37,8 @@ export const constantRoutes = [
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/index'),
-        meta: { title: 'Dashboard', icon: 'table' }
+        //using el svg icon, the elSvgIcon first when at the same time using elSvgIcon and icon
+        meta: { title: 'Dashboard', elSvgIcon: 'Fold' }
       }
     ]
   },
@@ -79,7 +80,6 @@ export const constantRoutes = [
         name: 'MockTest',
         meta: { title: 'Mock-Demo' }
       },
-
       {
         path: 'svg-icon',
         component: () => import('@/views/example/svg-icon/SvgIcon.vue'),
@@ -190,7 +190,7 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'https://github.com/jzfai/vue3-admin-electron.git',
+        path: 'https://github.com/jzfai/vue3-admin-template.git',
         meta: { title: 'External Link', icon: 'link' }
       }
     ]

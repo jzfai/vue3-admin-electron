@@ -1,4 +1,4 @@
-//to fix js-token issue for electron , so replace localStorage to js-cookie
+//to fix js-token issue for electron so replace localStorage to js-cookie
 //detail to look https://bbs.csdn.net/topics/397963088
 const TokenKey = 'Admin-Token'
 export function getToken() {

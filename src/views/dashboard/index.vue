@@ -1,28 +1,20 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name: {{ username }}</div>
+    <div>update element-plus to 1.2.+, add svg icon, icon-font is abandoned</div>
+    <i class="el-icon-add-location">abandoned</i>
+    <div>
+      <el-icon>
+        <Svg.Edit></Svg.Edit>
+      </el-icon>
+    </div>
   </div>
 </template>
 
 <script setup>
-// const { BrowserWindow } = require('electron').remote
-// const newWin = () => {
-//   new BrowserWindow({
-//     width: 800,
-//     height: 600,
-//     webPreferences: {
-//       nodeIntegration: true, //渲染进程中使用nodejs
-//       contextIsolation: false,
-//       enableRemoteModule: true //渲染线程中使用remote模块
-//     }
-//   })
-// }
-// let path = require('path')
-// const string = path.join('1', '2')
-// console.log(string)
+import * as Svg from '@element-plus/icons'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-
 let store = useStore()
 const username = computed(() => {
   return store.state.user.username
