@@ -71,7 +71,6 @@ const activeMenu = computed(() => {
     padding-bottom: 8vh;
   }
 }
-
 .el-menu-vertical {
   width: $sideBarWidth;
 }
