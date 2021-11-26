@@ -1,6 +1,6 @@
 {
     "name": "vue3-admin-electron",
-    "version": "1.2.1",
+    "version": "1.2.3",
     "author": "kuanghua(869653722@qq.com)",
     "scripts": {
         "dev": "vite --mode serve-dev --host",
