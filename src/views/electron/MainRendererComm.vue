@@ -1,13 +1,15 @@
 <template>
-  <div>父线程和子线程通信</div>
-  <div class="mt-2">first way</div>
-  <el-button @click="sendMsgToMain">sendMsgToMain</el-button>
-  <div class="mt-2">second way</div>
-  <el-button @click="send2ToMain">send2ToMain</el-button>
-  <div class="mt-2">three way</div>
-  <el-button @click="send3ToMain">send3ToMain</el-button>
-  <div class="mt-2">test Remote module</div>
-  <el-button @click="newWin">newWin</el-button>
+  <div class="scroll-y">
+    <div>父线程和子线程通信</div>
+    <div class="mt-2">first way</div>
+    <el-button @click="sendMsgToMain">sendMsgToMain</el-button>
+    <div class="mt-2">second way</div>
+    <el-button @click="send2ToMain">send2ToMain</el-button>
+    <div class="mt-2">three way</div>
+    <el-button @click="send3ToMain">send3ToMain</el-button>
+    <div class="mt-2">test Remote module</div>
+    <el-button @click="newWin">newWin</el-button>
+  </div>
 </template>
 
 <script setup>

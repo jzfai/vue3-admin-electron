@@ -18,8 +18,6 @@ let { elSvgName } = props
 
 <style scoped lang="scss">
 .el-svg-icon {
-  //electron
-  margin-top: -9px;
   margin-right: 8px;
   width: 1em;
   height: 1em;

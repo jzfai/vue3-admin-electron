@@ -43,6 +43,38 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/electron',
+    component: Layout,
+    meta: { title: 'electron', icon: 'user' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'main-renderer-comm',
+        component: () => import('@/views/electron/MainRendererComm.vue'),
+        name: 'MainRenderer',
+        meta: { title: 'Main Renderer', icon: 'table' }
+      },
+      {
+        path: 'electron-demo',
+        component: () => import('@/views/electron/ElectronDemo.vue'),
+        name: 'ElectronDemo',
+        meta: { title: 'Electron Demo', icon: 'table' }
+      },
+      {
+        path: 'fs-extra',
+        component: () => import('@/views/electron/FsExtra.vue'),
+        name: 'FsExtra',
+        meta: { title: 'fs-extra', icon: 'table' }
+      },
+      {
+        path: 'notify-netListen',
+        component: () => import('@/views/electron/NotifyNetListen.vue'),
+        name: 'NotifyNetListen',
+        meta: { title: 'Notify Net', icon: 'table' }
+      }
+    ]
+  },
+  {
     path: '/writing-demo',
     component: Layout,
     meta: { title: 'Writing Demo', icon: 'eye-open' },

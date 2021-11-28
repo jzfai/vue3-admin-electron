@@ -76,7 +76,8 @@ export default ({ command }) => {
     resolve: {
       alias: {
         '~': resolve(__dirname, './'),
-        '@': resolve(__dirname, 'src')
+        '@': resolve(__dirname, 'src'),
+        '#': resolve(__dirname, 'electron')
       },
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs']
     },

@@ -12,17 +12,12 @@ Use eslint+prettier+gitHooks format and verification code to improve code standa
 ## Update log
 
 ```javascript
-//11-26
-update vue3 version and so on;
-add keep-alive use demo and router using  demo ，look for "http://8.135.1.141/vue3-admin-template/#/writing-demo/keep-alive"
-add the param cachePage and leaveRmCachePage to route for keep-alive look for https://github.com/jzfai/vue3-admin-template/blob/master/src/router/index.js
-add collection  the error log of img loading fail look for "http://8.135.1.141/vue3-admin-template/#/error-log/log"
-in router page you need add root element,such as div, but is not necessary for children component
-fix some issue
+//11-28
+add  tray globalShortcut menu notify NetListen func
 ```
 
 ## Online experience(Download the installation package, unzip and install the experience)
-[github address](https://github.com/jzfai/vue3-admin-electron.git
+[github address](https://github.com/jzfai/vue3-admin-electron.git)
 
 address: https://pan.baidu.com/s/1UUWwh1Zx_C_c4pxL2m9zQA
 

@@ -11,12 +11,7 @@
 ## 更新日志
 ```javascript
 //11-26
-update vue3 version and so on;
-add keep-alive use demo and router using  demo ，look for "http://8.135.1.141/vue3-admin-template/#/writing-demo/keep-alive"
-add the param cachePage and leaveRmCachePage to route for keep-alive look for https://github.com/jzfai/vue3-admin-template/blob/master/src/router/index.js
-add collection  the error log of img loading fail look for "http://8.135.1.141/vue3-admin-template/#/error-log/log"
-in router page you need add root element,such as div, but is not necessary for children component
-fix some issue
+add  tray globalShortcut menu notify NetListen func
 ```
 ## 线上体验(下载安装包并安装体验)
 github 地址：  https://github.com/jzfai/vue3-admin-electron.git

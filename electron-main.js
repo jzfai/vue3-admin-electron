@@ -2,7 +2,7 @@ const { BrowserWindow, app } = require('electron')
 const isDev = require('electron-is-dev')
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 1240,
+    width: 1280,
     height: 800,
     webPreferences: {
       nodeIntegration: true, //渲染进程中使用nodejs
@@ -37,6 +37,12 @@ const createWindow = () => {
   require('@electron/remote/main').enable(mainWindow.webContents)
   //引入相应的主线程
   require('./electron/main/MainRendererComm')
+  //import menu
+  //require('./electron/main/menu')
+  //import tray
+  require('./electron/main/tray')
+  //import tray
+  require('./electron/main/globalShortcut')
 }
 app.on('ready', createWindow)
 //监听窗口关闭的事件，关闭的时候退出应用，macOs 需要排除(mac相关)
