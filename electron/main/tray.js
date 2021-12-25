@@ -20,7 +20,11 @@ let timeout = setTimeout(() => {
 appIcon.setToolTip('vue3-admin-electron')
 appIcon.setContextMenu(menu)
 
-//监听任务栏图标的单击、双击事件
+
+
+//win relative
+if(process.platform==="win32"){
+  //监听任务栏图标的单击、双击事件
 let win = BrowserWindow.getFocusedWindow()
 appIcon.on('double-click', () => {
   console.log(win)
@@ -39,12 +43,16 @@ win.on('close', (e) => {
 })
 
 //Electron 实现任务栏闪烁图标
-let count = 0
-const timer = setInterval(function () {
-  count++
-  if (count % 2 === 0) {
-    appIcon.setImage(path.join(__dirname, '../static/empty.ico'))
-  } else {
-    appIcon.setImage(path.join(__dirname, '../static/lover.png'))
-  }
-}, 500)
+  let count = 0
+  const timer = setInterval(function () {
+    count++
+    if (count % 2 === 0) {
+      appIcon.setPressedImage(path.join(__dirname, '../static/lover.png'))
+      // appIcon.setImage(path.join(__dirname, '../static/lover.ico'))
+    } else {
+      appIcon.setImage(path.join(__dirname, '../static/lover.png'))
+    }
+  }, 500)
+
+}
+

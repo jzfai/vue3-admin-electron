@@ -38,7 +38,7 @@ const createWindow = () => {
   //引入相应的主线程
   require('./electron/main/MainRendererComm')
   //import menu
-  //require('./electron/main/menu')
+  require('./electron/main/menu')
   //import tray
   require('./electron/main/tray')
   //import tray
