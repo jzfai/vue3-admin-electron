@@ -1,4 +1,3 @@
-<script src="../../../../../BaiduNetdiskDownload/01 Electron+Vue视频教程【41讲】/19  Electron 注册全局快捷键（globalShortcut） 以及 clipboard剪切板事件（26分22秒）/electrondemo_19/main/globalShortcart.js"></script>
 <template>
   <div class="scroll-y">
     <div>FsExtra.vue</div>
