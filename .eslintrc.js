@@ -1,5 +1,4 @@
-//https://blog.csdn.net/Sheng_zhenzhen/article/details/108685176
-//
+// https://blog.csdn.net/Sheng_zhenzhen/article/details/108685176
 module.exports = {
   root: true,
   env: {
@@ -8,27 +7,32 @@ module.exports = {
     es6: true,
     node: true
   },
+
   globals: {
     defineEmits: true,
     document: true,
     localStorage: true,
+    GLOBAL_VAR: true,
     window: true,
     defineProps: true,
     defineExpose: true
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/typescript/recommended',
-    '@vue/prettier',
-    '@vue/prettier/@typescript-eslint'
-  ],
+  plugins: ['@typescript-eslint', 'prettier', 'import'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:vue/vue3-recommended', 'prettier'],
   parserOptions: {
-    ecmaVersion: 2021
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+      tsx: true
+    }
   },
   rules: {
-    'linebreak-style': ['error', 'unix'],
-    'import/no-unresolved': 'off',
+    //close lf error
+    'import/no-unresolved': [0],
+    '@typescript-eslint/no-var-requires': [0],
+    'vue/multi-word-component-names': 'off',
+    'vue/no-deprecated-router-link-tag-prop': 'off',
     'import/extensions': 'off',
     'import/no-absolute-path': 'off',
     'no-async-promise-executor': 'off',
@@ -44,18 +48,9 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': ['off'],
     'vue/no-setup-props-destructure': ['off'],
     '@typescript-eslint/no-empty-function': ['off'],
+    'vue/script-setup-uses-vars': ['off'],
     //can config  to 2 if need more then required
-    '@typescript-eslint/no-unused-vars': [1],
-    //node.js require
-    '@typescript-eslint/no-var-requires': [0],
+    '@typescript-eslint/no-unused-vars': [0],
     'no-param-reassign': ['off']
-  },
-  overrides: [
-    {
-      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
-      env: {
-        jest: true
-      }
-    }
-  ]
+  }
 }

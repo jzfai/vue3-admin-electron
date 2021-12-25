@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import * as ElSvg from '@element-plus/icons'
+import * as ElSvg from '@element-plus/icons-vue'
 const props = defineProps({
   elSvgName: {
     require: true,
@@ -18,7 +18,6 @@ let { elSvgName } = props
 
 <style scoped lang="scss">
 .el-svg-icon {
-  margin-right: 8px;
   width: 1em;
   height: 1em;
   margin-left: -2px; //el-svg-icon has some margin

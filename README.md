@@ -12,8 +12,9 @@ Use eslint+prettier+gitHooks format and verification code to improve code standa
 ## Update log
 
 ```javascript
-//11-28
-add  tray globalShortcut menu notify NetListen func
+//12-25
+update electron to 16.x
+sync to vue-admin-plus@1.3.5
 ```
 
 ## Online experience(Download the installation package, unzip and install the experience)

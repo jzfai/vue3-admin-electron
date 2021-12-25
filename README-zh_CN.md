@@ -9,10 +9,13 @@
 使用 eslint+prettier+gitHooks 格式和校验代码,提高代码规范性和开发效率
 
 ## 更新日志
+
 ```javascript
-//11-26
-add  tray globalShortcut menu notify NetListen func
+//12-25
+update electron to 16.x
+sync to vue-admin-plus@1.3.5
 ```
+
 ## 线上体验(下载安装包并安装体验)
 github 地址：  https://github.com/jzfai/vue3-admin-electron.git
 

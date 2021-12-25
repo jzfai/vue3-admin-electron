@@ -9,7 +9,7 @@ export const constantRoutes = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index')
+        component: () => import('@/views/redirect')
       }
     ]
   },
@@ -20,12 +20,12 @@ export const constantRoutes = [
   },
   {
     path: '/404',
-    component: () => import('@/views/error-page/404'),
+    component: () => import('@/views/error-page/404.vue'),
     hidden: true
   },
   {
     path: '/401',
-    component: () => import('@/views/error-page/401'),
+    component: () => import('@/views/error-page/401.vue'),
     hidden: true
   },
   {
@@ -36,7 +36,7 @@ export const constantRoutes = [
       {
         path: 'dashboard',
         name: 'Dashboard',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/dashboard/index.vue'),
         //using el svg icon, the elSvgIcon first when at the same time using elSvgIcon and icon
         meta: { title: 'Dashboard', elSvgIcon: 'Fold' }
       }
@@ -71,6 +71,119 @@ export const constantRoutes = [
         component: () => import('@/views/electron/NotifyNetListen.vue'),
         name: 'NotifyNetListen',
         meta: { title: 'Notify Net', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/setting-switch',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/setting-switch'),
+        name: 'SettingSwitch',
+        meta: { title: 'Setting Switch', icon: 'example' }
+      }
+    ]
+  },
+  {
+    path: '/error-log',
+    component: Layout,
+    name: 'ErrorLog',
+    redirect: '/error-log/list',
+    meta: { title: 'ErrorLog', icon: 'bug' },
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/error-log'),
+        name: 'ErrorLog',
+        meta: { title: 'Error Log' }
+      },
+      {
+        path: 'error-log-test',
+        component: () => import('@/views/error-log/ErrorLogTest.vue'),
+        name: 'ErrorLogTest',
+        meta: { title: 'ErrorLog Test' }
+      }
+    ]
+  },
+  {
+    path: '/form',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Form',
+        component: () => import('@/views/form/index.vue'),
+        meta: { title: 'Form', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/nested',
+    component: Layout,
+    redirect: '/nested/menu1',
+    name: 'Nested',
+    meta: {
+      title: 'Nested',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'menu1',
+        component: () => import('@/views/nested/menu1/index.vue'), // Parent router-view
+        name: 'Menu1',
+        meta: { title: 'Menu1' },
+        children: [
+          {
+            path: 'menu1-1',
+            component: () => import('@/views/nested/menu1/menu1-1/index.vue'),
+            name: 'Menu1-1',
+            meta: { title: 'Menu1-1' }
+          },
+          {
+            path: 'menu1-2',
+            component: () => import('@/views/nested/menu1/menu1-2/index.vue'),
+            name: 'Menu1-2',
+            meta: { title: 'Menu1-2' },
+            children: [
+              {
+                path: 'menu1-2-1',
+                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1/index.vue'),
+                name: 'Menu1-2-1',
+                meta: { title: 'Menu1-2-1' }
+              },
+              {
+                path: 'menu1-2-2',
+                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2/index.vue'),
+                name: 'Menu1-2-2',
+                meta: { title: 'Menu1-2-2' }
+              }
+            ]
+          },
+          {
+            path: 'menu1-3',
+            component: () => import('@/views/nested/menu1/menu1-3/index.vue'),
+            name: 'Menu1-3',
+            meta: { title: 'Menu1-3' }
+          }
+        ]
+      },
+      {
+        path: 'menu2',
+        component: () => import('@/views/nested/menu2/index.vue'),
+        name: 'Menu2',
+        meta: { title: 'menu2' }
+      }
+    ]
+  },
+  {
+    path: '/external-link',
+    component: Layout,
+    children: [
+      {
+        path: 'https://github.com/jzfai/vue3-admin-template.git',
+        meta: { title: 'External Link', icon: 'link' }
       }
     ]
   },
@@ -144,110 +257,19 @@ export const constantRoutes = [
       {
         path: 'table',
         name: 'Table',
-        component: () => import('@/views/table/index'),
+        component: () => import('@/views/table/index.vue'),
         meta: { title: 'Table', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/tree/index.vue'),
         meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'table' }
-      }
-    ]
-  },
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
-      }
-    ]
-  },
-  {
-    path: '/external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://github.com/jzfai/vue3-admin-template.git',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
-  },
-  {
-    path: '/error-log',
-    component: Layout,
-    children: [
-      {
-        path: 'log',
-        component: () => import('@/views/error-log/index'),
-        name: 'ErrorLog',
-        meta: { title: 'Error Log', icon: 'bug' }
       }
     ]
   }
 ]
+
 
 /**
  * asyncRoutes
@@ -268,7 +290,7 @@ export const asyncRoutes = [
     children: [
       {
         path: 'roleIndex',
-        component: () => import('@/views/permission/index'),
+        component: () => import('@/views/permission'),
         name: 'Permission',
         meta: {
           title: 'Role Index'
@@ -277,7 +299,7 @@ export const asyncRoutes = [
       },
       {
         path: 'page',
-        component: () => import('@/views/permission/page'),
+        component: () => import('@/views/permission/page.vue'),
         name: 'PagePermission',
         meta: {
           title: 'Page Permission',
@@ -286,7 +308,7 @@ export const asyncRoutes = [
       },
       {
         path: 'directive',
-        component: () => import('@/views/permission/directive'),
+        component: () => import('@/views/permission/directive.vue'),
         name: 'DirectivePermission',
         meta: {
           title: 'Directive Permission'
@@ -295,7 +317,7 @@ export const asyncRoutes = [
       },
       {
         path: 'code-index',
-        component: () => import('@/views/permission/CodePermission'),
+        component: () => import('@/views/permission/CodePermission.vue'),
         name: 'CodePermission',
         meta: {
           title: 'Code Index'
@@ -303,7 +325,7 @@ export const asyncRoutes = [
       },
       {
         path: 'code-page',
-        component: () => import('@/views/permission/CodePage'),
+        component: () => import('@/views/permission/CodePage.vue'),
         name: 'CodePage',
         meta: {
           title: 'Code Page',

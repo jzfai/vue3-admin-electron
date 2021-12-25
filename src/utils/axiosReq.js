@@ -2,66 +2,67 @@ import store from '@/store'
 import axios from 'axios'
 import { ElLoading, ElMessage, ElMessageBox } from 'element-plus'
 import { getToken, setToken } from '@/utils/auth'
-let requestData
+let reqConfig
 let loadingE
 
-const service = axios.create({
-  // baseURL: process.env.VUE_APP_BASE_URL,
-  // timeout: 30000 // 超时时间
-})
-// 请求拦截
+const service = axios.create()
+// request
 service.interceptors.request.use(
-  (request) => {
-    // console.log('request', request)
-    // token配置
-    request.headers['AUTHORIZE_TOKEN'] = getToken()
-    /* 下载文件*/
-    if (request.isDownLoadFile) {
-      request.responseType = 'blob'
+  (req) => {
+    // token setting
+    req.headers['AUTHORIZE_TOKEN'] = getToken()
+    /* download file*/
+    if (req.isDownLoadFile) {
+      req.responseType = 'blob'
     }
-    if (request.isUploadFile) {
-      request.headers['Content-Type'] = 'multipart/form-data'
+    /* upload file*/
+    if (req.isUploadFile) {
+      req.headers['Content-Type'] = 'multipart/form-data'
     }
-    requestData = request
-    if (request.bfLoading) {
+    if (req.bfLoading) {
       loadingE = ElLoading.service({
         lock: true,
         text: '数据载入中',
-        spinner: 'el-icon-loading',
+        // spinner: 'el-icon-loading',
         background: 'rgba(0, 0, 0, 0.1)'
       })
     }
     /*
-     *params会拼接到url上
+     *params会拼接到url上,such as  "a=1&b=2"
      * */
-    if (request.isParams) {
-      request.params = request.data
-      request.data = {}
+    if (req.isParams) {
+      req.params = req.data
+      req.data = {}
     }
-    return request
+    //save req for res to using
+    reqConfig = req
+    return req
   },
   (err) => {
     Promise.reject(err)
   }
 )
-// 响应拦截
+//response
 service.interceptors.response.use(
   (res) => {
-    if (requestData.afHLoading && loadingE) {
+    if (reqConfig.afHLoading && loadingE) {
       loadingE.close()
     }
-    // 如果是下载文件直接返回
-    if (requestData.isDownLoadFile) {
+    // direct return, when download file
+    if (reqConfig.isDownLoadFile) {
       return res.data
     }
     const { flag, msg, code, isNeedUpdateToken, updateToken } = res.data
-    //更新token保持登录状态
+    //update token
     if (isNeedUpdateToken) {
       setToken(updateToken)
     }
-    if (flag) {
+    const successCode = '0,200,20000'
+    if (successCode.indexOf(code)) {
+      //业务成功处理
       return res.data
     } else {
+      //业务失败处理
       if (code === 403) {
         ElMessageBox.confirm('请重新登录', {
           confirmButtonText: '重新登录',
@@ -70,33 +71,44 @@ service.interceptors.response.use(
         }).then(() => {
           store.dispatch('user/resetToken').then(() => {
             location.reload()
+            //direct return
+            return Promise.reject(res.data)
           })
         })
       }
-      if (requestData.isAlertErrorMsg) {
+      //是否需要提示错误信息 isAlertErrorMsg:true 提示
+      if (reqConfig.isAlertErrorMsg) {
         ElMessage({
           message: msg,
           type: 'error',
           duration: 2 * 1000
         })
-        return Promise.reject(msg)
-      } else {
-        return res.data
       }
+      //返回错误信息
+      //如果未catch 走unhandledrejection进行收集
+      return Promise.reject(res.data)
     }
   },
   (err) => {
+    /*http错误处理，处理跨域，404，401，500*/
     if (loadingE) loadingE.close()
     ElMessage({
       message: err,
       type: 'error',
       duration: 2 * 1000
     })
-    return Promise.reject(err)
+    //如果是跨域
+    //Network Error,cross origin
+    let errObj = {
+      msg: err.toString(),
+      reqUrl: reqConfig.baseURL + reqConfig.url,
+      params: reqConfig.isParams ? reqConfig.params : reqConfig.data
+    }
+    return Promise.reject(JSON.stringify(errObj))
   }
 )
 
-export default function khReqMethod({
+export default function axiosReq({
   url,
   data,
   method,
@@ -111,7 +123,7 @@ export default function khReqMethod({
 }) {
   return service({
     url: url,
-    method: method ?? 'post',
+    method: method ?? 'get',
     data: data ?? {},
     isParams: isParams ?? false,
     bfLoading: bfLoading ?? true,

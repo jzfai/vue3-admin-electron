@@ -31,7 +31,7 @@ const { resolve } = require('path')
 // console.log('resolve   : ' + resolve('./src/views/electron'))
 
 let dirName = resolve('./src/views/electron')
-let source = `${dirName}/ElectronDemo.vue`
+let source = `${dirName}/ElectronDemoBak.vue`
 let sourceDir = `${dirName}`
 let to = `${dirName}/${new Date().getMilliseconds()}.file`
 const fsCopy = () => {
