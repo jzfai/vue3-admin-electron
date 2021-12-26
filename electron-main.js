@@ -18,7 +18,7 @@ const createWindow = () => {
     // detail to using look https://github.com/jeffbski/wait-on
     let opts = {
       resources: ['http://localhost:5006/index.html'],
-      delay: 1000, // initial delay in ms, default 0
+      delay: 0, // initial delay in ms, default 0
       timeout: 6000 // timeout in ms, default Infinity
     }
     waitOn(opts, (err) => {
@@ -38,7 +38,7 @@ const createWindow = () => {
   //引入相应的主线程
   require('./electron/main/MainRendererComm')
   //import menu
-  require('./electron/main/menu')
+  //require('./electron/main/menu')
   //import tray
   require('./electron/main/tray')
   //import tray
