@@ -10,8 +10,8 @@
       <breadcrumb class="breadcrumb-container" />
     </div>
     <!--nav title-->
-    <div class="heardCenterTitle" v-if="settings.showNavbarTitle">{{ settings.showNavbarTitle }}</div>
-    <div class="right-menu rowSC" v-if="settings.ShowDropDown">
+    <div v-if="settings.showNavbarTitle" class="heardCenterTitle">{{ settings.showNavbarTitle }}</div>
+    <div v-if="settings.ShowDropDown" class="right-menu rowSC">
       <el-dropdown trigger="click" size="medium">
         <div class="avatar-wrapper">
           <img src="@/assets/layout/animation-image.gif" class="user-avatar" />
@@ -24,7 +24,7 @@
             <router-link to="/">
               <el-dropdown-item>Home</el-dropdown-item>
             </router-link>
-            <a target="_blank" href="https://github.com/jzfai/vue3-admin-template">
+            <a target="_blank" href="https://github.com/jzfai/vue3-admin-electron">
               <el-dropdown-item>Github</el-dropdown-item>
             </a>
             <a target="_blank" href="https://juejin.cn/post/7036302298435289095">
@@ -46,7 +46,6 @@ import Hamburger from './Hamburger'
 import { computed, getCurrentInstance } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useStore } from 'vuex'
-
 
 const store = useStore()
 
