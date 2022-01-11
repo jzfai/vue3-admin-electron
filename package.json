@@ -1,6 +1,6 @@
 {
     "name": "vue3-admin-electron",
-    "version": "1.2.3",
+    "version": "1.3.4",
     "author": "kuanghua(869653722@qq.com)",
     "scripts": {
         "dev": "vite --mode serve-dev --host",
@@ -102,12 +102,10 @@
         "@vitejs/plugin-legacy": "1.6.4",
         "@vitejs/plugin-vue": "1.10.2",
         "@vitejs/plugin-vue-jsx": "1.3.1",
-        "@vue/compiler-sfc": "3.2.26",
         "electron": "16.0.5",
         "electron-builder": "22.14.5",
         "eslint": "7.32.0",
         "eslint-config-prettier": "8.3.0",
-        "eslint-define-config": "1.2.0",
         "eslint-plugin-import": "2.25.3",
         "eslint-plugin-prettier": "4.0.0",
         "eslint-plugin-vue": "8.1.1",
@@ -119,13 +117,10 @@
         "scss": "0.2.4",
         "svg-sprite-loader": "6.0.11",
         "typescript": "4.3.2",
-        "vite": "2.7.3",
+        "vite": "2.7.10",
         "vite-plugin-mock": "^2.9.6",
         "vite-plugin-style-import": "1.2.1",
         "vite-plugin-svg-icons": "1.0.5",
         "vue-tsc": "0.28.1"
-    },
-    "engines": {
-        "node": ">=14"
     }
 }
