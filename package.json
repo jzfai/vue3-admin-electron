@@ -9,11 +9,11 @@
         "lint": "eslint --ext .js,.jsx,.vue,.ts,.tsx src --fix",
         "build:serve": "vite build --mode  build-serve",
         "prepare": "husky install",
-        "preview": "yarn run build && vite preview",
-        "electron:dev": "yarn run dev | electron .",
-        "electron:nodemon": "yarn run dev | nodemon --exec electron .",
+        "preview": "npm run build && vite preview",
+        "electron:dev": "npm run dev | electron .",
+        "electron:nodemon": "npm run dev | nodemon --exec electron .",
         "electron:dir": "electron-builder --dir",
-        "electron:build": "yarn run build && electron-builder"
+        "electron:build": "npm run build && electron-builder"
     },
     "main": "electron-main.js",
     "build": {
