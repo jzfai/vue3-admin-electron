@@ -1,0 +1,151 @@
+Arguments: 
+  D:\nodejs\v16\node.exe D:\nodejs\v16\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\辅助软件\frp_0.30.0_windows_amd64;%MA;EN_HOME%\bin;D:\fuzhusoftware\OpenSSL-Win64\bin;%GROOVY_HOME%\bin;D:\辅助软件\ffmpeg\bin;D;\temp\AOMEI\AOMEI Backupper\6.5.0;D:\Git\cmd;;D:\Tencent\微信web开发者工具\dll;D:\Python\Python38\Scripts\;D:\Python\Python38\;C:\Users\kuanghua\AppData\Local\Microsoft\WindowsApps;D:\java\jdk1.8.0_162\bin;D:\uni-app\env\adb;C:\Users\kuanghua\AppData\Roaming\npm;C:\Users\kuanghua\AppData\Local\Pandoc\;D:\nodejs\v16;D:\Microsoft VS Code\bin;D:\construct\vue3-admin-electron\node_modules\.bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.4.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EEXIST: file already exists, mkdir 'D:\construct\vue3-admin-electron\node_modules\nodemon\node_modules'
+
+npm manifest: 
+  {
+      "name": "vue3-admin-electron",
+      "version": "1.3.4",
+      "author": "kuanghua(869653722@qq.com)",
+      "scripts": {
+          "dev": "vite --mode serve-dev --host",
+          "serve": "vite preview --mode build",
+          "build": "vite build --mode build",
+          "lint": "eslint --ext .js,.jsx,.vue,.ts,.tsx src --fix",
+          "build:serve": "vite build --mode  build-serve",
+          "prepare": "husky install",
+          "preview": "npm run build && vite preview",
+          "electron:dev": "npm run dev | electron .",
+          "electron:nodemon": "npm run dev | nodemon --exec electron .",
+          "electron:dir": "electron-builder --dir",
+          "electron:build": "npm run build && electron-builder"
+      },
+      "main": "electron-main.js",
+      "build": {
+          "productName": "vue3-admin-electron",
+          "appId": "top.kuanghua.electron",
+          "asar": false,
+          "afterPack": "./build/afterPack.js",
+          "directories": {
+              "buildResources": "build",
+              "output": "electron-dist"
+          },
+          "files": [],
+          "win": {
+              "target": [
+                  {
+                      "target": "nsis"
+                  }
+              ],
+              "icon": "build/favicon.ico",
+              "asarUnpack": [
+                  "src/**",
+                  "README.md"
+              ]
+          },
+          "nsis": {
+              "oneClick": false,
+              "allowElevation": true,
+              "allowToChangeInstallationDirectory": true,
+              "installerIcon": "build/icons/icon.ico",
+              "uninstallerIcon": "build/icons/icon.ico",
+              "installerHeaderIcon": "build/icons/icon.ico",
+              "createDesktopShortcut": true,
+              "createStartMenuShortcut": true,
+              "shortcutName": "vue3-admin-electron",
+              "include": "build/script/installer.nsh"
+          },
+          "mac": {
+              "icon": "build/icons/icon.icns"
+          },
+          "dmg": {
+              "contents": [
+                  {
+                      "x": 410,
+                      "y": 150,
+                      "type": "link",
+                      "path": "/Applications"
+                  },
+                  {
+                      "x": 130,
+                      "y": 150,
+                      "type": "file"
+                  }
+              ]
+          },
+          "linux": {
+              "icon": "build/icons"
+          }
+      },
+      "dependencies": {
+          "@electron/remote": "2.0.1",
+          "@element-plus/icons-vue": "0.2.4",
+          "axios": "0.21.3",
+          "echarts": "4.2.1",
+          "electron-is-dev": "2.0.0",
+          "element-plus": "1.3.0-beta.7",
+          "fs-extra": "10.0.0",
+          "mitt": "3.0.0",
+          "moment-mini": "^2.22.1",
+          "nprogress": "0.2.0",
+          "path": "0.12.7",
+          "path-to-regexp": "^6.2.0",
+          "tinymce": "4.9.11",
+          "vue": "3.2.29",
+          "vue-router": "4.0.12",
+          "vuex": "4.0.2",
+          "nedb": "1.8.0",
+          "wait-on": "6.0.0"
+      },
+      "devDependencies": {
+          "@babel/eslint-parser": "7.16.3",
+          "@types/echarts": "4.9.7",
+          "@types/mockjs": "1.0.3",
+          "@types/node": "15.0.1",
+          "@typescript-eslint/eslint-plugin": "5.5.0",
+          "@typescript-eslint/parser": "5.5.0",
+          "@vitejs/plugin-legacy": "1.6.4",
+          "@vitejs/plugin-vue": "1.10.2",
+          "@vitejs/plugin-vue-jsx": "1.3.1",
+          "electron": "16.0.5",
+          "electron-builder": "22.14.5",
+          "eslint": "7.32.0",
+          "eslint-config-prettier": "8.3.0",
+          "eslint-plugin-import": "2.25.3",
+          "eslint-plugin-prettier": "4.0.0",
+          "eslint-plugin-vue": "8.1.1",
+          "husky": "7.0.2",
+          "mockjs": "1.1.0",
+          "nodemon": "1.19.1",
+          "prettier": "2.2.1",
+          "sass": "1.32.12",
+          "scss": "0.2.4",
+          "svg-sprite-loader": "6.0.11",
+          "typescript": "4.3.2",
+          "vite": "2.7.13",
+          "vite-plugin-mock": "^2.9.6",
+          "vite-plugin-style-import": "1.2.1",
+          "vite-plugin-svg-icons": "1.0.5",
+          "vue-tsc": "0.28.1"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
