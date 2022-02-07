@@ -17,7 +17,7 @@ const createWindow = () => {
     // wait for http://localhost:5006 to load
     // detail to using look https://github.com/jeffbski/wait-on
     let opts = {
-      resources: ['http://localhost:5006/index.html'],
+      resources: ['http://localhost:5008/index.html'],
       delay: 0, // initial delay in ms, default 0
       timeout: 6000 // timeout in ms, default Infinity
     }
@@ -25,7 +25,7 @@ const createWindow = () => {
       if (err) {
         return
       }
-      mainWindow.loadURL('http://localhost:5006')
+      mainWindow.loadURL('http://localhost:5008')
       //open devTools
       mainWindow.webContents.openDevTools({ mode: 'bottom' })
     })
