@@ -6,6 +6,16 @@ import viteSvgIcons from 'vite-plugin-svg-icons'
 
 //mock
 import { viteMockServe } from 'vite-plugin-mock'
+
+//setup name
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+
+//auto import element-plus has some issue
+// import Components from 'unplugin-vue-components/vite'
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+//auto import vue https://www.npmjs.com/package/unplugin-auto-import
+import AutoImport from 'unplugin-auto-import/vite'
 import setting from './src/settings'
 // import { loadEnv } from 'vite'
 const prodMock = setting.openProdMock
@@ -76,6 +86,28 @@ export default ({ command }) => {
           setupProdMockServer();
         `,
         logger: true
+      }),
+      VueSetupExtend(),
+      //https://github.com/antfu/unplugin-auto-import/blob/HEAD/src/types.ts
+      AutoImport({
+        // resolvers: [ElementPlusResolver()],
+        imports: [
+          'vue',
+          'vuex',
+          'vue-router',
+          {
+            '@/hooks/global/useCommon': ['useCommon'],
+            '@/hooks/global/useElement': ['useElement'],
+            '@/hooks/global/useVueRouter': ['useVueRouter'],
+            '@/utils/axiosReq': ['axiosReq']
+          }
+        ],
+        eslintrc: {
+          enabled: true, // Default `false`
+          filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+          globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+        },
+        dts: true //auto generation auto-imports.d.ts file
       })
     ],
     build: {

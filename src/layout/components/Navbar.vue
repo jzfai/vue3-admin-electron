@@ -10,8 +10,8 @@
       <breadcrumb class="breadcrumb-container" />
     </div>
     <!--nav title-->
-    <div v-if="settings.showNavbarTitle" class="heardCenterTitle">{{ settings.showNavbarTitle }}</div>
-    <div v-if="settings.ShowDropDown" class="right-menu rowSC">
+    <div class="heardCenterTitle" v-if="settings.showNavbarTitle">{{ settings.showNavbarTitle }}</div>
+    <div class="right-menu rowSC" v-if="settings.ShowDropDown">
       <el-dropdown trigger="click" size="medium">
         <div class="avatar-wrapper">
           <img src="@/assets/layout/animation-image.gif" class="user-avatar" />
@@ -24,7 +24,7 @@
             <router-link to="/">
               <el-dropdown-item>Home</el-dropdown-item>
             </router-link>
-            <a target="_blank" href="https://github.com/jzfai/vue3-admin-electron">
+            <a target="_blank" href="https://github.com/jzfai/vue3-admin-template">
               <el-dropdown-item>Github</el-dropdown-item>
             </a>
             <a target="_blank" href="https://juejin.cn/post/7036302298435289095">
@@ -46,10 +46,7 @@ import Hamburger from './Hamburger'
 import { computed, getCurrentInstance } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useStore } from 'vuex'
-
 const store = useStore()
-
-let { proxy } = getCurrentInstance()
 let settings = computed(() => {
   return store.state.app.settings
 })
@@ -64,8 +61,8 @@ const toggleSideBar = () => {
  * */
 const loginOut = () => {
   store.dispatch('user/logout').then(() => {
-    ElMessage({ message: '退出登录成功', type: 'success' })
-    proxy.$router.push(`/login?redirect=${proxy.$route.fullPath}`)
+    // ElMessage({ message: '退出登录成功', type: 'success' })
+    // record the back point
     //此处reload清空路由和重置部分状态
     location.reload()
   })
