@@ -194,7 +194,7 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'https://github.com/jzfai/vue3-admin-electron.git',
+        path: 'https://github.com/jzfai/vue3-admin-template.git',
         meta: { title: 'External Link', icon: 'link' }
       }
     ]
@@ -248,14 +248,36 @@ export const constantRoutes = [
         name: 'routerDemoF',
         hidden: true,
         component: () => import('@/views/example/keep-alive/RouterDemoF.vue'),
-        meta: { title: 'RouterDemo-F', activeMenu: '/writing-demo/keep-alive' }
+        meta: { title: 'RouterDemo-F', cachePage: true, activeMenu: '/writing-demo/keep-alive' }
       },
       {
         path: 'router-demo-s',
         name: 'routerDemoS',
         hidden: true,
         component: () => import('@/views/example/keep-alive/RouterDemoS.vue'),
-        meta: { title: 'RouterDemo-S', activeMenu: '/writing-demo/keep-alive' }
+        meta: { title: 'RouterDemo-S', cachePage: true, activeMenu: '/writing-demo/keep-alive' }
+      },
+      {
+        path: 'deep-router-keep-alive',
+        name: 'DeepRouterKeepAlive',
+        component: () => import('@/views/example/keep-alive/DeepRouterKeepAlive.vue'),
+        //注：移除父容器页面缓存会把子页面一起移除了
+        meta: { title: 'Deep KeepAlive', cachePage: true, leaveRmCachePage: false },
+        alwaysShow: true,
+        children: [
+          {
+            path: 'deep-children',
+            name: 'DeepChildren',
+            component: () => import('@/views/example/keep-alive/deep-children/DeepChildren.vue'),
+            meta: { title: 'DeepChildren', cachePage: true, leaveRmCachePage: true }
+          },
+          {
+            path: 'deep-children-sd',
+            name: 'DeepChildrenSd',
+            component: () => import('@/views/example/keep-alive/deep-children/DeepChildrenSd.vue'),
+            meta: { title: 'DeepChildrenSd', cachePage: true, leaveRmCachePage: false }
+          }
+        ]
       }
     ]
   },
@@ -343,7 +365,6 @@ export const asyncRoutes = [
           code: 1
         }
       },
-
       // 404 page must be placed at the end !!!
       // using pathMatch install of "*" in vue-router 4.0
       { path: '/:pathMatch(.*)', redirect: '/404', hidden: true }

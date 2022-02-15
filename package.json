@@ -74,7 +74,7 @@
     }
   },
   "dependencies": {
-    "@electron/remote": "2.0.1",
+    "@electron/remote": "^2.0.2",
     "@element-plus/icons-vue": "0.2.4",
     "axios": "0.21.3",
     "echarts": "4.2.1",
@@ -87,7 +87,7 @@
     "path": "0.12.7",
     "path-to-regexp": "^6.2.0",
     "tinymce": "4.9.11",
-    "vue": "3.2.29",
+    "vue": "^3.2.31",
     "vue-router": "4.0.12",
     "vuex": "4.0.2",
     "nedb": "1.8.0",

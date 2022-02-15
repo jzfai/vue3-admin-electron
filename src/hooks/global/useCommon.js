@@ -20,7 +20,11 @@ export const useCommonExample = () => {
     currentTime: '',
     todayTimeLast: '',
     yesterdayTime: null,
-    beforeThreeDateTime: ''
+    beforeThreeDateTime: '',
+    startEndArr: [],
+    /*dialog*/
+    dialogTitle: '',
+    dialogVisible: false
   })
   // 读取.env 多坏境里的数据
   state.VITE_APP_IMAGE_URL_PRE = import.meta.env.VITE_APP_BASE_URL
@@ -51,11 +55,6 @@ export const useCommonExample = () => {
     state.fileList = fileList
   }
 
-  const refSettingFile = ref()
-  const goUploadFile = () => {
-    refSettingFile.value.click()
-  }
-
   const sleep = (time) => {
     return new Promise((resolve) => {
       const timer = setTimeout(() => {
@@ -68,7 +67,6 @@ export const useCommonExample = () => {
   return {
     clearParamsIsNull,
     handleChange,
-    goUploadFile,
     sleep,
     ...toRefs(state)
   }

@@ -64,9 +64,10 @@ service.interceptors.response.use(
     } else {
       //业务失败处理
       if (code === 403) {
-        ElMessageBox.confirm('请重新登录', {
+        ElMessageBox.confirm('token失效,请重新登录', {
           confirmButtonText: '重新登录',
           cancelButtonText: '取消',
+          showCancelButton: false,
           type: 'warning'
         }).then(() => {
           store.dispatch('user/resetToken').then(() => {
@@ -86,6 +87,7 @@ service.interceptors.response.use(
       }
       //返回错误信息
       //如果未catch 走unhandledrejection进行收集
+      //注：如果没有return 则，会放回到请求方法中.then ,返回的res为 undefined
       return Promise.reject(res.data)
     }
   },

@@ -66,6 +66,7 @@ export default function (app) {
       } else {
         errLog = `${reason?.stack?.substr(0, 300)}`
       }
+
       //未授权和取消不捕捉
       //此处可添加不捕捉状态码
       const unhandledCode = '403, 401'

@@ -12,9 +12,9 @@ Use eslint+prettier+gitHooks format and verification code to improve code standa
 ## Update log
 
 ```javascript
-//12-25
+//02-15
 update electron to 16.x
-sync to vue-admin-plus@1.3.5
+sync to vue-admin-plus@2.0.2 relase version
 ```
 
 ## Online experience(Download the installation package, unzip and install the experience)

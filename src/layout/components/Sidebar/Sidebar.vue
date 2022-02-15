@@ -29,7 +29,7 @@ import SidebarItem from './SidebarItem.vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 const store = useStore()
-const route = useRoute()
+const $route = useRoute()
 let routes = computed(() => {
   return store.state.permission.routes
 })
@@ -58,7 +58,7 @@ const dillScssExportToJson = (scssExportJson) => {
 import scssExportJson from '@/styles/variables-to-js.scss'
 let scssJson = dillScssExportToJson(scssExportJson)
 const activeMenu = computed(() => {
-  const { meta, fullPath } = route
+  const { meta, fullPath } = $route
   // if set path, the sidebar will highlight the path you set
   if (meta.activeMenu) {
     return meta.activeMenu

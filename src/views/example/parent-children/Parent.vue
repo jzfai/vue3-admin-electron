@@ -6,7 +6,7 @@
     <!--v-model sync -->
     <Children ref="refChildren" v-model:childrenTitle="parentTitle" father-name="Vue3Template" @emitParent="emitParent">
       <!--默认插槽 v-slot -->
-      <template #default>
+      <template v-slot>
         <div>默认插槽</div>
       </template>
       <!--具名插槽// v-slot:header -->
@@ -48,7 +48,11 @@ const fartherMethod = () => {
   console.log('fartherMethod')
 }
 //provide
+//provide 和 inject 绑定不是响应式的
 provide('title', 'provide and inject using')
+// const changeProvide = () => {
+//   testProvide.value = '改变后的值'
+// }
 
 //v-model sync
 const parentTitle = ref('parentTitle')

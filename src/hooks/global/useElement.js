@@ -121,7 +121,7 @@ const useElementExample = () => {
     ElMessage({
       showClose: true,
       message: message || '成功',
-      type: type,
+      type: type || 'success',
       center: false
     })
   }
