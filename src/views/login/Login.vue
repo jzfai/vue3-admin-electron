@@ -27,8 +27,8 @@
             v-model="formInline.password"
             :type="passwordType"
             name="password"
-            @keyup.enter="handleLogin"
             placeholder="password(123456)"
+            @keyup.enter="handleLogin"
           />
           <span class="show-pwd" @click="showPwd">
             <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
@@ -205,6 +205,10 @@ $light_gray: #eee;
     color: #fff;
     height: 42px; //此处调整item的高度
     caret-color: #fff;
+  }
+  //hiden the input border
+  .el-input__inner {
+    box-shadow: none !important;
   }
 }
 </style>

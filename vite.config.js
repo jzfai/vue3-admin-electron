@@ -51,6 +51,7 @@ export default ({ command }) => {
       hmr: { overlay: false }, // 禁用或配置 HMR 连接 设置 server.hmr.overlay 为 false 可以禁用服务器错误遮罩层
       // 服务配置
       port: 5008, // 类型： number 指定服务器端口;
+      strictPort: true,
       open: false, // 类型： boolean | string在服务器启动时自动在浏览器中打开应用程序；
       cors: true // 类型： boolean | CorsOptions 为开发服务器配置 CORS。默认启用并允许任何源
       //proxy look for https://vitejs.cn/config/#server-proxy
@@ -61,6 +62,11 @@ export default ({ command }) => {
       //     rewrite: (path) => path.replace(/^\/api/, '')
       //   }
       // }
+    },
+    preview: {
+      port: 5008,
+      host: '0.0.0.0',
+      strictPort: true
     },
     plugins: [
       vue(),
@@ -111,10 +117,10 @@ export default ({ command }) => {
       })
     ],
     build: {
-      // minify: 'terser',
+      minify: 'terser',
       brotliSize: false,
       // 消除打包大小超过500kb警告
-      chunkSizeWarningLimit: 2000,
+      chunkSizeWarningLimit: 5000,
       //remote console.log in prod
       terserOptions: {
         //detail to look https://terser.org/docs/api-reference#compress-options
@@ -144,13 +150,28 @@ export default ({ command }) => {
       // extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs']
     },
     css: {
+      postcss: {
+        //remove build charset warning
+        plugins: [
+          {
+            postcssPlugin: 'internal:charset-removal',
+            AtRule: {
+              charset: (atRule) => {
+                if (atRule.name === 'charset') {
+                  atRule.remove()
+                }
+              }
+            }
+          }
+        ]
+      },
       preprocessorOptions: {
         //define global scss variable
         scss: {
           additionalData: `@import "@/styles/variables.scss";`
         }
       }
-    },
+    }
     // optimizeDeps: {
     //   include: ['element-plus/lib/locale/lang/zh-cn', 'element-plus/lib/locale/lang/en']
     // }
