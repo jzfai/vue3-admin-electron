@@ -1,6 +1,6 @@
 {
   "name": "vue3-admin-electron",
-  "version": "1.4.0",
+  "version": "1.4.3",
   "license": "ISC",
   "author": "kuanghua(869653722@qq.com)",
   "scripts": {
@@ -79,7 +79,7 @@
     "axios": "0.21.3",
     "echarts": "4.2.1",
     "electron-is-dev": "2.0.0",
-    "element-plus": "~2.0.2",
+    "element-plus": "2.0.5",
     "fs-extra": "10.0.0",
     "mitt": "3.0.0",
     "moment-mini": "^2.22.1",
@@ -121,7 +121,7 @@
     "scss": "0.2.4",
     "svg-sprite-loader": "6.0.11",
     "typescript": "4.3.2",
-    "vite": "~2.8.6",
+    "vite": "2.8.6",
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-style-import": "1.2.1",
     "vite-plugin-svg-icons": "1.0.5",
