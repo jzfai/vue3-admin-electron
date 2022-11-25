@@ -6,6 +6,7 @@ import table from './modules/table'
 import excel from './modules/excel'
 import other from './modules/other'
 import guid from './modules/guid'
+import electron from './modules/electron'
 import type { RouterTypes } from '~/basic'
 import Layout from '@/layout/index.vue'
 
@@ -21,7 +22,6 @@ export const constantRoutes: RouterTypes = [
       }
     ]
   },
-
   {
     path: '/login',
     component: () => import('@/views/login/index.vue'),
@@ -152,6 +152,7 @@ export const constantRoutes: RouterTypes = [
       }
     ]
   },
+  electron,
   basicDemo,
   guid,
   richText,
