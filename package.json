@@ -24,7 +24,7 @@
     "afterPack": "./build/afterPack.js",
     "directories": {
       "buildResources": "build",
-      "output": "electron-dist"
+      "output": "./dist/electron"
     },
     "files": [],
     "win": {
