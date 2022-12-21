@@ -33,7 +33,7 @@ const db = new Datastore({
   filename: './nedbStore.db'
 })
 
-let state = reactive({
+const state = reactive({
   msg: '首页组件',
   name: '',
   age: '',
@@ -63,7 +63,7 @@ const findData = () => {
 const addData = () => {
   //获取表单数据
   console.log(state.name, state.age)
-  db.insert({ name: state.name, age: state.age }, function (err, doc) {
+  db.insert({ name: state.name, age: state.age }, (err, doc) => {
     if (err) {
       console.log(err)
       return
@@ -72,7 +72,7 @@ const addData = () => {
   })
 }
 const updateData = () => {
-  db.update({ _id: 'cHODtJOIft1YcOMN' }, { $set: { name: '赵六' } }, function (err, data) {
+  db.update({ _id: 'cHODtJOIft1YcOMN' }, { $set: { name: '赵六' } }, (err, data) => {
     if (err) {
       console.log(err)
       return
@@ -81,7 +81,7 @@ const updateData = () => {
   })
 }
 const deleteData = () => {
-  db.remove({ _id: '6nAYPLImXRs7mB0P' }, {}, function (err, data) {
+  db.remove({ _id: '6nAYPLImXRs7mB0P' }, {}, (err, data) => {
     if (err) {
       console.log(err)
       return

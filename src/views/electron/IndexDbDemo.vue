@@ -51,7 +51,7 @@ request.onupgradeneeded = function (event) {
   }
 }
 const addData = () => {
-  let request = db
+  const request = db
     .transaction(['person'], 'readwrite')
     .objectStore('person')
     .add({ id: 1, name: '张三', age: 24, email: 'zhangsan@example.com' })
@@ -65,16 +65,16 @@ const addData = () => {
   }
 }
 
-let state = reactive({
+const state = reactive({
   personData: {}
 })
 
 const { personData } = toRefs(state)
 
 const findData = () => {
-  let transaction = db.transaction(['person'])
-  let objectStore = transaction.objectStore('person')
-  let request = objectStore.get(1)
+  const transaction = db.transaction(['person'])
+  const objectStore = transaction.objectStore('person')
+  const request = objectStore.get(1)
 
   request.onerror = function (event) {
     console.log('事务失败')
@@ -83,9 +83,9 @@ const findData = () => {
   request.onsuccess = function (event) {
     if (request.result) {
       state.personData = request.result
-      console.log('Name: ' + request.result.name)
-      console.log('Age: ' + request.result.age)
-      console.log('Email: ' + request.result.email)
+      console.log(`Name: ${  request.result.name}`)
+      console.log(`Age: ${  request.result.age}`)
+      console.log(`Email: ${  request.result.email}`)
     } else {
       console.log('未获得数据记录')
     }
@@ -93,7 +93,7 @@ const findData = () => {
 }
 
 const updateData = () => {
-  let request = db
+  const request = db
     .transaction(['person'], 'readwrite')
     .objectStore('person')
     .put({ id: 1, name: '李四', age: 35, email: 'lisi@example.com' })
@@ -107,7 +107,7 @@ const updateData = () => {
   }
 }
 const deleteData = () => {
-  let request = db.transaction(['person'], 'readwrite').objectStore('person').delete(1)
+  const request = db.transaction(['person'], 'readwrite').objectStore('person').delete(1)
 
   request.onsuccess = function (event) {
     console.log('数据删除成功')

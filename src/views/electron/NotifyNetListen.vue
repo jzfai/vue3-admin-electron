@@ -13,20 +13,20 @@
 <script setup>
 import { getCurrentInstance } from 'vue'
 
-let { proxy } = getCurrentInstance()
+const { proxy } = getCurrentInstance()
 const myNotification = () => {
-  let option = {
+  const option = {
     title: 'electron 通知',
     body: 'electron跨平台软件开发教程更新了'
   }
-  let myNotification = new window.Notification(option.title, option)
+  const myNotification = new window.Notification(option.title, option)
   myNotification.onclick = function () {
     proxy.elMessageMixin('消息被点击了')
   }
 }
 
 //监听网络变化实现通知
-window.addEventListener('online', function () {
+window.addEventListener('online', () => {
   const option = {
     title: 'vue3-admin-electron',
     body: '网络恢复了'
@@ -35,7 +35,7 @@ window.addEventListener('online', function () {
   proxy.elMessageMixin('有网络了')
 })
 
-window.addEventListener('offline', function () {
+window.addEventListener('offline', () => {
   //其他参数查询Notification文档
   const option = {
     title: 'vue3-admin-electron',

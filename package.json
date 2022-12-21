@@ -1,6 +1,6 @@
 {
   "name": "vue3-admin-electron",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "license": "ISC",
   "author": "kuanghua(869653722@qq.com)",
   "scripts": {
@@ -24,7 +24,7 @@
     "afterPack": "./build/afterPack.js",
     "directories": {
       "buildResources": "build",
-      "output": "./dist/electron"
+      "output": "./dist/electron-output"
     },
     "files": [],
     "win": {
@@ -96,10 +96,18 @@
     "fs-extra": "10.0.0",
     "tinymce": "6.3.0",
     "nedb": "1.8.0",
-    "wait-on": "6.0.1"
+    "wait-on": "6.0.1",
+    "xlsx": "^0.18.5",
+    "d3": "7.2.1",
+    "splitpanes": "^3.1.1",
+    "vxe-table": "^4.3.5",
+    "xe-utils": "^3.5.6",
+    "driver.js": "^0.9.8",
+    "sortablejs": "1.15.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.16.3",
+    "@tinymce/tinymce-vue": "^5.0.0",
     "@types/mockjs": "1.0.6",
     "@types/node": "^17.0.35",
     "@types/path-browserify": "^1.0.0",
@@ -139,7 +147,7 @@
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.8",
     "unplugin-vue-define-options": "^0.12.2",
-    "vite": "^3.1.8",
+    "vite": "^4.0.2",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-mkcert": "^1.7.2",
     "vite-plugin-mock": "^2.9.6",

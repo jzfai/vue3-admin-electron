@@ -30,10 +30,10 @@ const { resolve } = require('path')
 // console.log('__dirname : ' + __dirname)
 // console.log('resolve   : ' + resolve('./src/views/electron'))
 
-let dirName = resolve('./src/views/electron')
-let source = `${dirName}/ElectronDemoBak.vue`
-let sourceDir = `${dirName}`
-let to = `${dirName}/${new Date().getMilliseconds()}.file`
+const dirName = resolve('./src/views/electron')
+const source = `${dirName}/ElectronDemoBak.vue`
+const sourceDir = `${dirName}`
+const to = `${dirName}/${new Date().getMilliseconds()}.file`
 const fsCopy = () => {
   fs.copy(source, to)
     .then((res) => {
@@ -151,7 +151,7 @@ const readJson = () => {
 }
 
 const outputJson = () => {
-  let dataJson = { fai: 6666 }
+  const dataJson = { fai: 6666 }
   fs.outputJson(source, dataJson)
     .then((res) => {
       console.log(res)
@@ -163,7 +163,7 @@ const outputJson = () => {
 
 //和outputJson比较目录和不存在不会创建
 const writeJson = () => {
-  let dataJson = { fai: 6666 }
+  const dataJson = { fai: 6666 }
   fs.writeJson(source, dataJson)
     .then((res) => {
       console.log(res)

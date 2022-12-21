@@ -8,9 +8,7 @@ export const useConfigStore = defineStore('config', {
     return {
       language: settings.defaultLanguage,
       theme: settings.defaultTheme,
-      size: settings.defaultSize,
-      //axios req collection
-      axiosPromiseArr: [] as Array<ObjKeys>
+      size: settings.defaultSize
     }
   },
   persist: {
