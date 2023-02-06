@@ -56,7 +56,7 @@ export const constantRoutes: RouterTypes = [
     component: Layout,
     children: [
       {
-        path: 'https://github.jzfai.top/low-code-platform/#/permission-center/user-table-query',
+        path: 'https://github.jzfai.top/low-code-plateform',
         meta: { title: 'RBAC', icon: 'skill' }
       }
     ]

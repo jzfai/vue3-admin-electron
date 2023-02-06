@@ -16,7 +16,7 @@ import router, { asyncRoutes, constantRoutes, roleCodeRoutes } from '@/router'
 import 'nprogress/nprogress.css'
 import { useBasicStore } from '@/store/basic'
 
-const buttonCodes: Array<number> = [] //按钮权限
+const buttonCodes: Array<Number> = [] //按钮权限
 interface menuRow {
   category: number
   code: number
