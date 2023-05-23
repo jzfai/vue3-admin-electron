@@ -7,8 +7,7 @@ module.exports = defineConfig({
     node: true
   },
   globals: {
-    defineOptions: true,
-    $ref: true
+    defineOptions: true
   },
   plugins: ['@typescript-eslint', 'prettier', 'unicorn'],
   extends: [
@@ -62,6 +61,7 @@ module.exports = defineConfig({
     // js/ts
     camelcase: ['error', { properties: 'never' }],
     'no-console': ['warn', { allow: ['error'] }],
+    '@typescript-eslint/no-var-requires':'off',
     'no-debugger': 'warn',
     'no-constant-condition': ['error', { checkLoops: false }],
     'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
@@ -85,7 +85,6 @@ module.exports = defineConfig({
     'no-multi-str': 'error',
     'no-with': 'error',
     'no-void': 'error',
-    '@typescript-eslint/no-var-requires': 'off',
 
     'sort-imports': [
       'warn',

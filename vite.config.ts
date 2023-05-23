@@ -4,14 +4,13 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteMockServe } from 'vite-plugin-mock'
-import { createHtmlPlugin } from 'vite-plugin-html'
 import Components from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
 import { presetAttributify, presetIcons, presetUno } from 'unocss'
 import mkcert from 'vite-plugin-mkcert'
-import DefineOptions from 'unplugin-vue-define-options/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import setting from './src/settings'
+import vitePluginSetupExtend from './src/plugins/vite-plugin-setup-extend'
 const prodMock = setting.openProdMock
 // import { visualizer } from 'rollup-plugin-visualizer'
 const pathSrc = resolve(__dirname, 'src')
@@ -30,21 +29,19 @@ export default defineConfig(({ command, mode }) => {
       port: 5008, // 类型： number 指定服务器端口;
       open: false, // 类型： boolean | string在服务器启动时自动在浏览器中打开应用程序；
       host: true,
-      strictPort: true,
       https: false
     },
     preview: {
-      port: 5008,
+      port: 5006,
       host: true,
       strictPort: true
     },
     plugins: [
-      vue({ reactivityTransform: true }),
+      vue(),
       vueJsx(),
       UnoCSS({
         presets: [presetUno(), presetAttributify(), presetIcons()]
       }),
-      DefineOptions(),
       mkcert(),
       //compatible with old browsers
       // legacy({
@@ -62,7 +59,7 @@ export default defineConfig(({ command, mode }) => {
         localEnabled: command === 'serve',
         prodEnabled: prodMock,
         injectCode: `
-          import { setupProdMockServer } from '../mock-prod-server';
+          import { setupProdMockServer } from './mock-prod-server';
           setupProdMockServer();
         `,
         logger: true
@@ -84,7 +81,7 @@ export default defineConfig(({ command, mode }) => {
           }
         ],
         //配置后会自动扫描目录下的文件
-        dirs: ['src/hooks/**', 'src/utils/**', 'src/store/**', 'src/api/**', 'src/directives/**'],
+        dirs: ['src/hooks/**', 'src/utils/**', 'src/store/**', 'src/directives/**'],
         eslintrc: {
           enabled: true, // Default `false`
           filepath: './eslintrc/.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
@@ -93,15 +90,13 @@ export default defineConfig(({ command, mode }) => {
         dts: './typings/auto-imports.d.ts'
       }),
       // auto config of index.html title
-      createHtmlPlugin({
-        inject: { data: { title: setting.title } }
-      })
       //依赖分析插件
       // visualizer({
       //   open: true,
       //   gzipSize: true,
       //   brotliSize: true
       // })
+      vitePluginSetupExtend({ inject: { title: setting.title } })
     ],
     build: {
       chunkSizeWarningLimit: 10000, //消除触发警告的 chunk, 默认500k

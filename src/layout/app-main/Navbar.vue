@@ -15,11 +15,6 @@
     <div v-if="settings.showNavbarTitle" class="heardCenterTitle">{{ settings.title }}</div>
     <!-- 下拉操作菜单 -->
     <div v-if="settings.ShowDropDown" class="right-menu rowSC">
-      <ScreenFull />
-      <ScreenLock />
-      <ThemeSelect />
-      <SizeSelect />
-      <LangSelect />
       <el-dropdown trigger="click" size="medium">
         <div class="avatar-wrapper">
           <img src="https://github.jzfai.top/file/images/nav-right-logo.gif" class="user-avatar" />
@@ -30,11 +25,8 @@
             <router-link to="/">
               <el-dropdown-item>{{ langTitle('Home') }}</el-dropdown-item>
             </router-link>
-            <a target="_blank" href="https://github.com/jzfai/vue3-admin-plus">
+            <a target="_blank" href="https://github.com/jzfai/vue3-admin-ts">
               <el-dropdown-item>{{ langTitle('Github') }}</el-dropdown-item>
-            </a>
-            <a target="_blank" href="https://github.jzfai.top/low-code-platform">
-              <el-dropdown-item>{{ langTitle('LowCodePlatFrom') }}</el-dropdown-item>
             </a>
             <!--<el-dropdown-item>修改密码</el-dropdown-item>-->
             <el-dropdown-item divided @click="loginOut">{{ langTitle('login out') }}</el-dropdown-item>
@@ -51,15 +43,11 @@ import { CaretBottom } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 import Breadcrumb from './Breadcrumb.vue'
 import Hamburger from './Hamburger.vue'
-import LangSelect from './component/LangSelect.vue'
-import ScreenFull from './component/ScreenFull.vue'
-import SizeSelect from './component/SizeSelect.vue'
-import ThemeSelect from './component/ThemeSelect.vue'
-import ScreenLock from './component/ScreenLock.vue'
 import { resetState } from '@/hooks/use-permission'
 import { elMessage } from '@/hooks/use-element'
 import { useBasicStore } from '@/store/basic'
 import { langTitle } from '@/hooks/use-common'
+import {loginOutReq} from "@/api/system";
 
 const basicStore = useBasicStore()
 const { settings, sidebar, setToggleSideBar } = basicStore
@@ -69,10 +57,12 @@ const toggleSideBar = () => {
 //退出登录
 const router = useRouter()
 const loginOut = () => {
-  elMessage('退出登录成功')
-  router.push(`/login?redirect=/`)
-  nextTick(() => {
-    resetState()
+  loginOutReq().then(()=>{
+    elMessage('退出登录成功')
+    router.push(`/login?redirect=/`)
+    nextTick(() => {
+      resetState()
+    })
   })
 }
 </script>
