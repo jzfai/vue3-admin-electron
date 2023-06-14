@@ -11,12 +11,11 @@ Use eslint+prettier+gitHooks format and verification code to improve code standa
 ## Related items
 
 The framework is available in js, ts, plus and  electron versions
-- electron version:[vue3-admin-electron](https://github.com/jzfai/vue3-admin-electron.git
+- electron version:[vue3-admin-electron](https://github.com/jzfai/vue3-admin-electron.git)
 - js version：[vue3-element-admin](https://github.com/jzfai/vue3-admin-electron.git)
 - ts version：[vue3-element-ts](https://github.com/jzfai/vue3-admin-ts.git)
 - js version for plus：[vue3-element-plus](https://github.com/jzfai/vue3-admin-plus.git)
-- react version： [react-admin-template](https://github.com/jzfai/react-admin-template.git)
-- java Micro-service background data：[micro-service-plus](https://github.com/jzfai/micro-service-plus)
+- java Micro-service background data：[micro-service-single](https://github.com/jzfai/micro-service-single)
 > development and  experience：two words  Really fragrant！！！！！
 
 ## Build Setup
