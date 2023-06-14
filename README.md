@@ -7,20 +7,6 @@ A new  generation Cross-desktop framework   using  electron13+vue3(setup-script)
 Use eslint+prettier+gitHooks format and verification code to improve code standardization and development efficiency
 
 
-## Online experience(Download the installation package, unzip and install the experience)
-[github address](https://github.com/jzfai/vue3-admin-electron.git)
-
-address: https://pan.baidu.com/s/1UUWwh1Zx_C_c4pxL2m9zQA
-
-password：4293
-
-## Demo
-
-#### -- win
-![electron-win-demo](https://github.jzfai.top/file/images/electron-win-demo.png)
-
-#### -- mac
-![electron-mac-demo](https://github.jzfai.top/file/images/electron-mac-demo.png)
 
 ## Related items
 
