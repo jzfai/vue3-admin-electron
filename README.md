@@ -11,7 +11,7 @@ Use eslint+prettier+gitHooks format and verification code to improve code standa
 ## Related items
 
 The framework is available in js, ts, plus and  electron versions
-- electron version:[vue3-admin-electron](https://github.com/jzfai/vue3-admin-electron.git)
+- electron version: [vue3-admin-electron](https://github.com/jzfai/vue3-admin-electron.git)
 - js version：[vue3-element-admin](https://github.com/jzfai/vue3-admin-electron.git)
 - ts version：[vue3-element-ts](https://github.com/jzfai/vue3-admin-ts.git)
 - js version for plus：[vue3-element-plus](https://github.com/jzfai/vue3-admin-plus.git)
